@@ -40,7 +40,7 @@ func Discovery(srv *rpc.Server) {
 		Port:            port,
 		Name:            srv.Name,
 		HealthyCheckURL: fmt.Sprintf("%s:%d/%s", utils.LocalIP(), port, srv.Name),
-		IsRPC:           false,
+		IsRPC:           true,
 	}
 	res.WithServiceConfig(c2)
 	_ = srv.Discovery(res)

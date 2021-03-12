@@ -30,6 +30,10 @@ func Discovery(srv *rpc.Server) {
 		Port:    viper.GetInt("golang-consul.port"),
 		Token:   viper.GetString("golang-consul.token"),
 	}
+	res, err := consul.New(c1)
+	if err != nil {
+		panic("consul init fail")
+	}
 	port, _ := strconv.Atoi(srv.Port)
 	c2 := &discovery.ServiceConfig{
 		IP:              utils.LocalIP(),
@@ -38,10 +42,7 @@ func Discovery(srv *rpc.Server) {
 		HealthyCheckURL: fmt.Sprintf("%s:%d/%s", utils.LocalIP(), port, srv.Name),
 		IsRPC:           false,
 	}
-	res, err := consul.New(c1, c2)
-	if err != nil {
-		panic("consul init fail")
-	}
+	res.WithServiceConfig(c2)
 	_ = srv.Discovery(res)
 }
 

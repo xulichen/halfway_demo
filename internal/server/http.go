@@ -1,10 +1,11 @@
 package server
 
 import (
+	demo "halfway_demo/proto"
+
 	"github.com/labstack/echo/v4"
 	"github.com/spf13/viper"
 	"github.com/xulichen/halfway/pkg/net/http"
-	demo "halfway_demo/proto"
 )
 
 func NewHttpServer() *http.Server {

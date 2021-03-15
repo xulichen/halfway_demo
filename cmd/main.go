@@ -1,16 +1,16 @@
 package main
 
 import (
-	"context"
 	"fmt"
-	"github.com/spf13/viper"
-	"github.com/xulichen/halfway/pkg/log"
 	"halfway_demo/internal/dao"
 	"halfway_demo/internal/server"
 	"halfway_demo/internal/service"
 	"os"
 	"os/signal"
 	"syscall"
+
+	"github.com/spf13/viper"
+	"github.com/xulichen/halfway/pkg/log"
 
 	"github.com/xulichen/halfway/pkg/config"
 	"go.elastic.co/apm"
@@ -43,10 +43,10 @@ func main() {
 	signal.Notify(stopSignal, os.Interrupt, syscall.SIGTERM)
 
 	select {
-		case <- stopSignal:
-			log.GetLogger().Info("server GracefulStop start")
-			_ = httpSrv.GracefulStop(context.Background())
-			rpcSrv.GracefulStop()
-			log.GetLogger().Info("server GracefulStop finish")
+	case <-stopSignal:
+		log.GetLogger().Info("server GracefulStop start")
+		_ = httpSrv.GracefulStop()
+		rpcSrv.GracefulStop()
+		log.GetLogger().Info("server GracefulStop finish")
 	}
 }

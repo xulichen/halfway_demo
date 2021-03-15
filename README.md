@@ -32,5 +32,4 @@ halfway template
 │   └── demo.proto
 └── utils
     ├── common.go
-    └── external_client.go
 ```

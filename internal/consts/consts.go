@@ -2,11 +2,11 @@ package consts
 
 // default value
 const (
-	DefaultLogPath             = "/var/log/category.log"
-	DefaultServiceName         = "xxxService"
-	DefaultEnvOnline           = "online"
-	DefaultEnvTest             = "test"
-	DefaultEnvLocal            = "local"
+	DefaultLogPath     = "/var/log/category.log"
+	DefaultServiceName = "xxxService"
+	DefaultEnvOnline   = "online"
+	DefaultEnvTest     = "test"
+	DefaultEnvLocal    = "local"
 )
 
 const (

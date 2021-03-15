@@ -45,21 +45,3 @@ python-amqp:
   access-key-secret: XXXXXXXXXXXXXXXXXX
   address: XXXXXXXXXXXXXXXXXX
   instance-id: XXXXXXXXXXXXXXXXXX
-python-base:
-  env: test
-  port: "5000"
-python-consul:
-  host: consul-server.default.svc.cluster.local
-  port: "8500"
-  token: XXXXXXXXXXXXXXXXXX
-python-es:
-  host: XXXXXXXXXXXXXXXXXX
-  password: 7f94H&lhgZ8a
-  port: "9200"
-  user: bizdev
-python-golang-auth:
-  host: test-hxx-file-auth.default.svc.cluster.local
-  port: "13831"
-python-golang-course:
-  host: test-hxx-file-course.default.svc.cluster.local
-  port: "13831"

@@ -2,13 +2,14 @@ package server
 
 import (
 	"fmt"
+	demo "halfway_demo/proto"
+	"halfway_demo/utils"
+	"strconv"
+
 	"github.com/spf13/viper"
 	"github.com/xulichen/halfway/pkg/discovery"
 	"github.com/xulichen/halfway/pkg/discovery/consul"
 	"github.com/xulichen/halfway/pkg/net/rpc"
-	demo "halfway_demo/proto"
-	"halfway_demo/utils"
-	"strconv"
 )
 
 func NewRpcServer() *rpc.Server {

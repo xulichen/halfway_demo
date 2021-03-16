@@ -2,6 +2,9 @@ syntax = "proto3";
 
 package demo;
 
+import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+import "google/protobuf/empty.proto";
+
 option go_package = "demo";
 
 service Demo {
@@ -9,7 +12,7 @@ service Demo {
 }
 
 message HelloReq {
-  string content = 1;
+  string content = 1 [(gogoproto.moretags) = 'form:"name" validate:"required"'];
 }
 
 message HelloResp {

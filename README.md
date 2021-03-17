@@ -3,9 +3,12 @@
 halfway template
 
 ```text
-.
 ├── Dockerfile
 ├── README.md
+├── api
+│   └── demo
+│       ├── demo.pb.go
+│       └── demo.proto
 ├── cmd
 │   └── main.go
 ├── config
@@ -21,15 +24,16 @@ halfway template
 │   │   └── redis.go
 │   ├── entity
 │   │   └── orm
+│   │       └── demo.go
+│   ├── routers
+│   │   ├── grpc.go
+│   │   └── http.go
 │   ├── server
 │   │   ├── grpc.go
 │   │   └── http.go
 │   └── service
 │       ├── hello.go
 │       └── service.go
-├── proto
-│   ├── demo.pb.go
-│   └── demo.proto
 └── utils
-    ├── common.go
+    └── common.go
 ```

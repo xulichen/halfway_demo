@@ -6,15 +6,16 @@ package demo
 import (
 	context "context"
 	fmt "fmt"
+	io "io"
+	math "math"
+	math_bits "math/bits"
+
 	_ "github.com/gogo/protobuf/gogoproto"
 	proto "github.com/golang/protobuf/proto"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
 	_ "google.golang.org/protobuf/types/known/emptypb"
-	io "io"
-	math "math"
-	math_bits "math/bits"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -127,7 +128,7 @@ func init() {
 	proto.RegisterType((*HelloResp)(nil), "demo.HelloResp")
 }
 
-func init() { proto.RegisterFile("demo.proto", fileDescriptor_ca53982754088a9d) }
+func init() { proto.RegisterFile("demo.demo", fileDescriptor_ca53982754088a9d) }
 
 var fileDescriptor_ca53982754088a9d = []byte{
 	// 228 bytes of a gzipped FileDescriptorProto
@@ -225,7 +226,7 @@ var _Demo_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "demo.proto",
+	Metadata: "demo.demo",
 }
 
 func (m *HelloReq) Marshal() (dAtA []byte, err error) {
@@ -368,15 +369,15 @@ func (m *HelloReq) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: HelloReq: wiretype end group for non-group")
+			return fmt.Errorf("demo: HelloReq: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: HelloReq: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("demo: HelloReq: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
 			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Content", wireType)
+				return fmt.Errorf("demo: wrong wireType = %d for field Content", wireType)
 			}
 			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
@@ -451,15 +452,15 @@ func (m *HelloResp) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: HelloResp: wiretype end group for non-group")
+			return fmt.Errorf("demo: HelloResp: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: HelloResp: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("demo: HelloResp: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
 			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Content", wireType)
+				return fmt.Errorf("demo: wrong wireType = %d for field Content", wireType)
 			}
 			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
@@ -578,7 +579,7 @@ func skipDemo(dAtA []byte) (n int, err error) {
 		case 5:
 			iNdEx += 4
 		default:
-			return 0, fmt.Errorf("proto: illegal wireType %d", wireType)
+			return 0, fmt.Errorf("demo: illegal wireType %d", wireType)
 		}
 		if iNdEx < 0 {
 			return 0, ErrInvalidLengthDemo
@@ -591,7 +592,7 @@ func skipDemo(dAtA []byte) (n int, err error) {
 }
 
 var (
-	ErrInvalidLengthDemo        = fmt.Errorf("proto: negative length found during unmarshaling")
-	ErrIntOverflowDemo          = fmt.Errorf("proto: integer overflow")
-	ErrUnexpectedEndOfGroupDemo = fmt.Errorf("proto: unexpected end of group")
+	ErrInvalidLengthDemo        = fmt.Errorf("demo: negative length found during unmarshaling")
+	ErrIntOverflowDemo          = fmt.Errorf("demo: integer overflow")
+	ErrUnexpectedEndOfGroupDemo = fmt.Errorf("demo: unexpected end of group")
 )

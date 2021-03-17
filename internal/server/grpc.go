@@ -2,7 +2,6 @@ package server
 
 import (
 	"fmt"
-	demo "halfway_demo/proto"
 	"halfway_demo/utils"
 	"strconv"
 
@@ -25,6 +24,7 @@ func NewRpcServer() *rpc.Server {
 	return srv
 }
 
+// consul 服务注册
 func Discovery(srv *rpc.Server) {
 	c1 := &discovery.ServerConfig{
 		Address: viper.GetString("golang-consul.host"),
@@ -45,8 +45,4 @@ func Discovery(srv *rpc.Server) {
 	}
 	res.WithServiceConfig(c2)
 	_ = srv.Discovery(res)
-}
-
-func RegisterDemoService(srv *rpc.Server, service demo.DemoServer) {
-	demo.RegisterDemoServer(srv.Server, service)
 }

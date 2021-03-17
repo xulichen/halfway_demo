@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"halfway_demo/internal/dao"
+	"halfway_demo/internal/routers"
 	"halfway_demo/internal/server"
 	"halfway_demo/internal/service"
 	"os"
@@ -28,15 +29,14 @@ func main() {
 	}
 	d := dao.New(database, client)
 	serv := service.New(d)
-	helloService := &service.HelloService{Service: serv}
 
 	rpcSrv := server.NewRpcServer()
-	server.RegisterDemoService(rpcSrv, helloService)
+	routers.RegisterGrpcRouters(rpcSrv, serv)
 	if err := rpcSrv.Start(); err != nil {
 		panic("start rpc server error")
 	}
 	httpSrv := server.NewHttpServer()
-	server.RegisterDemoRouter(httpSrv, helloService)
+	routers.RegisterHttpRouters(httpSrv, serv)
 	httpSrv.Start()
 
 	stopSignal := make(chan os.Signal, 1)

@@ -2,7 +2,7 @@ package service
 
 import (
 	"context"
-	demo "halfway_demo/proto"
+	"halfway_demo/api/demo"
 )
 
 type HelloService struct {
